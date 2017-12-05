@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/script.js"></script>
+</head>
+<body>
+	<div id="first">
+		<div class="stage stage-deck stage-open">
+		</div>
+	</div>
+	<div id="second">
+		<div class="stage stage-playing">
+			<div class="user-player">
+				<h2>You</h2>
+				<!--where player is inserted-->
+				<div class="game-controls" style="display: none;">
+					<button data-roll="rock">Rock</button>
+					<button data-roll="paper">Paper</button>
+					<button data-roll="scissors">Scissors</button>
+				</div>
+			</div><!-- user player -->
+			<div class="roll-outcome">
+				<h2>...Versus...</h2>
+				<p id="user-rolled">So far, no rolls</p>
+				<p id="opp-rolled"></p>
+				<div>
+					<img src="assets/images/paper.svg" class="game-roll" id="user-game-roll">
+					<img src="assets/images/paper.svg" class="game-roll" id="opp-game-roll">
+				</div>
+				<p id="health-change"></p>
+			</div>
+			<div class="opp-player">
+				<h2>Them</h2>
+				<!--where player is inserted-->
+				<div class="game-controls" style="display: none;">
+					<p>Rock, paper, scissors.<br><strong>Shoot.</strong></p>
+				</div>
+				<div>
+				</div>
+			</div><!-- opponent player -->
+		</div>
+	</div>
+	<div id="third">
+		<div class="stage stage-scores">
+			<div class="info-box">
+				<h4>You Defeated <span></span> Opponents</h4>
+				<h4>You Have <span></span> Opponents Left</h4>
+			</div>
+			<div class="info-defeated">
+				<div class="player play-unavail">
+				</div>
+				<div class="player player-unavail">
+				</div>
+				<div class="player player-unavail">
+				</div>
+				<div class="player player-unavail">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
