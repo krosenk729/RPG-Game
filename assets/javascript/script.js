@@ -18,14 +18,9 @@ $(document).ready(function(){
 	var uPlayer = '';
 	var oppPlayer = '';
 
-	// set up all grumps on stage
-	for(i = 0; i < gameGrumpies.length; i++){
-		var g = makePlayer(gameGrumpies[i]);
-		$('.stage-deck.stage-open').append(g);
-	}
+	newGame();
 
-	// when clicking on an open-stage player, set it to be user or 
-	// opponent character. once both are selected, close the stage	
+	// event for clicking on a staged grumpy 	
 	$('.stage-deck.stage-open .player').click(function(){
 		var clicked = grumpies[ $(this).attr('id') ] ;
 		console.log(uPlayer.length);
@@ -40,19 +35,16 @@ $(document).ready(function(){
 			var u = $(this).remove();
 			$('.stage-playing .opp-player > h2').after(u);
 
-			// set up game for play
-			$('.stage-deck').toggleClass('stage-open').toggleClass('stage-closed');
-			$('.stage-playing .game-controls').show();
+			softReset();
 		}
 	});
 
-	// when clicking on game control buttons, play RPS
+	// event for rock, paper, scissors roll 
 	$('.game-controls button').click(function(){
 		var w = didWin( uPlayer.prob + uPlayer.probIncrease );
 		console.log(  $(this).data('roll') );
 		var userChoice =  $(this).data('roll');
-		var oppChoice = getOpp( userChoice , w);
-		console.log( oppChoice );
+		var oppChoice = getOpp( userChoice , w); 
 
 		$('#user-rolled').html('You rolled '+ userChoice);
 		$('#opp-rolled').html(oppPlayer.name + ' rolled ' + oppChoice);
@@ -69,14 +61,49 @@ $(document).ready(function(){
 			$('#health-change').html('You just took a hit of ' + oppPlayer.power + ' grumpiness');
 		}
 
-		if( uPlayer.health === 0 ){
+		if( oppPlayer.health === 0){
+			var u = $('.opp-player .player').remove();
+			$('.info-defeated').append(u);
 
-
-		}else if( oppPlayer.health == 0){
-
+			//change game for a new play
+			oppPlayer = '';
+			softReset();
+		} else if( uPlayer.health === 0 ){
+			//hardReset();
 		}
 	});
 
+	// function to create new game cards
+	function newGame(){
+		for(i = 0; i < gameGrumpies.length; i++){
+			var g = makePlayer(gameGrumpies[i]);
+			$('.stage-deck.stage-open').append(g);
+		}
+	}
+
+
+	function grumpPaperScissors( ){
+
+	}
+
+	function checkWin(){
+
+	}
+
+	// function to reset 
+	function softReset(){
+		$('.stage-deck').toggleClass('stage-open').toggleClass('stage-closed');
+		$('.stage-playing .game-controls').toggle();
+		$('#user-rolled').empty();
+		$('#opp-rolled').empty();
+		$('#user-game-roll').empty();
+		$('#opp-game-roll').empty();
+	}
+
+	function hardReset(){
+		softReset();
+
+	}
 
 });
 
