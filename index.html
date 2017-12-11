@@ -1,63 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Grumpy Grumple</title>
 	<meta charset="utf-8">
-	<meta name="description" content="">
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
+	<meta name="description" content="Roll-playing game to have grumpy cats play rock, paper, scissors.">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> 
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,700|Oswald:600" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/javascript/script.js"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
-	<div id="first">
-		<div class="stage stage-deck stage-open">
+<div class="container-fluid stage stage-deck">
+	<div class="row">
+		<div class="title">
+			<h1>Let's Get Ready to Grump-ble.</h1>
+			<h3>Rock, Paper, Scissors? <strong>...Shoot.</strong></h3>
+			<p id="player-choice-instructions">Choose your player. Pick an opponent. <br>Battle in a game of rock, paper, scissors. <br>Try to keep your grumpiness in spite of  the <span alt="party fun">&#127881;</span>.</p>
 		</div>
 	</div>
-	<div id="second">
-		<div class="stage stage-playing">
-			<div class="user-player">
-				<h2>You</h2>
-				<!--where player is inserted-->
-				<div class="game-controls" style="display: none;">
+	<div class="row" id="staged-players">
+	</div>
+</div>
+<div class="container-fluid stage stage-playing">
+	<div class="row game-playing">
+		<div class="game-playing-controls">
+			<h2>Play</h2>
+			<div class="game-playing-box">
+				<div class="roll-buttons">
 					<button data-roll="rock">Rock</button>
 					<button data-roll="paper">Paper</button>
 					<button data-roll="scissors">Scissors</button>
 				</div>
-			</div><!-- user player -->
-			<div class="roll-outcome">
-				<h2>...Versus...</h2>
-				<p id="user-rolled">So far, no rolls</p>
-				<p id="opp-rolled"></p>
-				<div class="game-controls" style="display: none;">
-					<img src="assets/images/paper.svg" class="game-roll" id="user-game-roll">
-					<img src="assets/images/paper.svg" class="game-roll" id="opp-game-roll">
+				<div class="roll-outcome" id="roll-outcome">
+					<h3>That Happened.</h3>
+					<p></p>
+					<p></p>
+					<img src="assets/images/paper.svg" class="roll-outcome-img roll-outcome-user" id="roll-outcome-user" alt="image of the user's roll (rock, paper or scissors)">
+					<img src="assets/images/paper.svg" class="roll-outcome-img roll-outcome-opp" id="roll-outcome-opp" alt="image of the opponent's roll (rock, paper or scissors)">
+					<p></p>
 				</div>
-				<p id="health-change"></p>
-			</div>
-			<div class="opp-player">
-				<h2>Them</h2>
-				<!--where player is inserted-->
-				<div class="game-controls" style="display: none;">
-					<p>Rock, paper, scissors.<br><strong>Shoot.</strong></p>
-				</div>
-				<div>
-				</div>
-			</div><!-- opponent player -->
-		</div>
-	</div>
-	<div id="third">
-		<div class="stage stage-scores">
-			<div class="defeated-player">
-				<h4>You Out Grumpied <span></span> Opponents. Good.</h4>
-			</div>
-			<div class="defeated-by-player">
-				<h4>Your Grump Was No Match For <span></span></h4>
-				<!-- where defeated players go -->
 			</div>
 		</div>
 	</div>
+</div>
+<div class="container-fluid stage stage-over">
+	<div class="row">
+		<div class="stage-over-info">
+			<h2>That Was Terrible</h2>
+			<div class="game-over-rps">
+				<p>You came, you scissored, you grumpied.</p>
+				<p id="result">and you lost</p>
+				<button>Keep Playing</button>
+			</div>
+			<div class="game-over-grump">
+				<p>And now it's all over.</p>
+				<button>Play Again</button>
+
+			</div>
+		</div>
+	</div>
+	<div class="row game-board">
+		<div class="game-board-wins">
+			<h3>Trophy Case</h3>
+			<p>You Were Grumpier than...</p>
+			<div class="row">
+			</div>
+
+		</div>
+		<div class="game-board-loses">
+			<h3>More Grumpy Than You</h3>
+			<p>#GrumpyGoals</p>
+			<div class="row">
+			</div>
+		</div>
+	</div>
+	
+</div>
 </body>
 </html>

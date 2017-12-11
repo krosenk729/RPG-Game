@@ -1,23 +1,8 @@
-// Grumpies
-
-
-// Players .stage-deck
-// col-6 col-sm-4 col-md-3
-
-// Players .stage-playing .game-playing
-// col col-sm-4 pull-sm-4 
-
-// Players .stage-playing .game-board
-// col-6 player
-
-
 // Game 
 $(document).ready(function(){
 	//********************************************************************//
 	// Initialize & Game Setup 
 	var grumpPlayer, grumpOpp, gameGrumps;
-
-
 
 	//********************************************************************//
 	// Events
@@ -104,8 +89,8 @@ $(document).ready(function(){
 
 	// Function to change between elements on the screen based on passed selectors
 	function changeStage(showSelect, hideSelect){
-		$( showSelect ).show();
-		$( hideSelect + ', .roll-outcome' ).hide();
+		$( showSelect + ', ' + hideSelect + ', .roll-outcome' ).hide();
+		$( showSelect ).slideDown( 8000 );
 	}
 
 	// Function to determine if a user won given a probability of winning
