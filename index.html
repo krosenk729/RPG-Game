@@ -31,7 +31,7 @@
 				<h2>...Versus...</h2>
 				<p id="user-rolled">So far, no rolls</p>
 				<p id="opp-rolled"></p>
-				<div>
+				<div class="game-controls" style="display: none;">
 					<img src="assets/images/paper.svg" class="game-roll" id="user-game-roll">
 					<img src="assets/images/paper.svg" class="game-roll" id="opp-game-roll">
 				</div>
@@ -50,11 +50,11 @@
 	</div>
 	<div id="third">
 		<div class="stage stage-scores">
-			<div class="info-box">
-				<h4>You Defeated <span></span> Opponents</h4>
-				<h4>You Have <span></span> Opponents Left</h4>
+			<div class="defeated-player">
+				<h4>You Out Grumpied <span></span> Opponents. Good.</h4>
 			</div>
-			<div class="info-defeated">
+			<div class="defeated-by-player">
+				<h4>Your Grump Was No Match For <span></span></h4>
 				<!-- where defeated players go -->
 			</div>
 		</div>

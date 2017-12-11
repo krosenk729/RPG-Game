@@ -18,12 +18,11 @@ $(document).ready(function(){
 	var uPlayer = '';
 	var oppPlayer = '';
 
-	newGame();
+	newGame(gameGrumpies);
 
 	// event for clicking on a staged grumpy 	
 	$('.stage-deck.stage-open .player').click(function(){
 		var clicked = grumpies[ $(this).attr('id') ] ;
-		console.log(uPlayer.length);
 
 		if( uPlayer === '' ){
 			uPlayer = clicked; //object with a name same as id clicked 
@@ -42,7 +41,6 @@ $(document).ready(function(){
 	// event for rock, paper, scissors roll 
 	$('.game-controls button').click(function(){
 		var w = didWin( uPlayer.prob + uPlayer.probIncrease );
-		console.log(  $(this).data('roll') );
 		var userChoice =  $(this).data('roll');
 		var oppChoice = getOpp( userChoice , w); 
 
@@ -63,22 +61,28 @@ $(document).ready(function(){
 
 		if( oppPlayer.health === 0){
 			var u = $('.opp-player .player').remove();
-			$('.info-defeated').append(u);
+			$('.defeated-player').append(u);
 
 			//change game for a new play
 			oppPlayer = '';
 			softReset();
+
 		} else if( uPlayer.health === 0 ){
+			var u = $('.opp-player .player').remove();
+			$('.defeated-by-player').append(u);
 			//hardReset();
+			
+			//change game for a new play
+			oppPlayer = '';
+			softReset();
 		}
 	});
 
 	// function to create new game cards
-	function newGame(){
-		for(i = 0; i < gameGrumpies.length; i++){
-			var g = makePlayer(gameGrumpies[i]);
-			$('.stage-deck.stage-open').append(g);
-		}
+	function newGame(arrOfPlayers){
+		arrOfPlayers.forEach( function(item){ 
+			$('.stage-deck').append( makePlayer(item) ); 
+		});
 	}
 
 
@@ -92,7 +96,7 @@ $(document).ready(function(){
 
 	// function to reset 
 	function softReset(){
-		$('.stage-deck').toggleClass('stage-open').toggleClass('stage-closed');
+		$('.stage-deck').toggleClass('stage-open').toggleClass('stage-closed').slideToggle();
 		$('.stage-playing .game-controls').toggle();
 		$('#user-rolled').empty();
 		$('#opp-rolled').empty();

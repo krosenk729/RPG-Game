@@ -1,0 +1,315 @@
+/* RPG Game Styles */ 
+
+/**
+Teal #2D8996
+Pink #ED56AC
+Dark, dark brown #262626
+Med Brown #9f6a48
+Offwhite #EEEBE6
+**/
+
+/****************************************************/
+/* General Styles 
+/****************************************************/
+@-ms-viewport {
+	width: device-width;
+}
+
+*, *::before, *::after {
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+}
+
+html, body{
+	height: 100%;
+}
+
+body{
+	font-family: 'Lora', serif;
+	text-align: center;
+	line-height: 1.6em;
+}
+
+head{ display: none }
+h1 { font-size: 2em; margin: .67em 0 }
+h2 { font-size: 1.5em; margin: .75em 0 }
+h3 { font-size: 1.3em; margin: .83em 0 }
+h4, h5, h6, p, blockquote, ul, fieldset, form, ol, dl, dir, menu, textarea, input { font-size: 1.2em; margin: .2em 0 }
+h1, h2, h3, h4, h5, h6, b, strong{font-weight: bolder; font-family: 'Oswald', sans-serif; }
+button, textarea, input, select   { display: inline-block }
+ol, ul, dir, menu, dd { margin-left: 40px }
+ol { list-style-type: decimal }
+ol ul, ul ol, ul ul, ol ol { margin-top: 0; margin-bottom: 0 }
+br:before { content: "\A"; white-space: pre-line }
+
+.title{
+	padding: 1.5em;
+	margin-bottom: 1em;
+}
+
+.container-fluid {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+
+/****************************************************/
+/* Stage Areas 
+/****************************************************/
+
+.stage{
+	min-height: 100%;
+	display: none;
+}
+
+/* Stage Deck */
+.stage-deck{
+	background: white url('../images/pattern11.png') repeat border-box;
+	background-size: 15%;
+}
+
+.stage-deck .row:first-child{
+	justify-content: center;
+}
+
+/* Stage Playing */
+
+.roll-buttons button{
+
+}
+.roll-outcome p{
+}
+.roll-outcome img{
+	display: inline-block;
+	width: 40%;
+	padding: 1em;
+}
+
+
+/* Stage Over */
+.stage-over{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.stage-over-info, .game-board-wins, .game-board-loses{
+	-webkit-flex-basis: 0;
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+.stage-over .row:first-child{
+	justify-content: center;
+}
+
+.stage-over-info{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 15px;
+	border: 2px solid brown;
+}
+
+.game-board-wins{
+	background: white url('../images/pattern4.png') repeat border-box;
+	background-size: 25%;
+}
+
+.game-board-loses{
+	background: white url('../images/pattern13.png') repeat border-box;
+	background-size: 25%;
+}
+
+.game-board-wins > .row, .game-board-loses > .row{
+	margin: 0;
+	justify-content: center;
+}
+
+
+
+/****************************************************/
+/* Player Treatment
+/****************************************************/
+
+.player-box{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	background: white;
+	border: 2px solid #D5C8E2;
+	width: 90%;
+	padding: 1em 1.2em;
+	margin: 1em;
+}
+
+.player-avatar{
+
+}
+
+.player-avatar img{
+	width: 100%;
+}
+
+.player-title{
+
+}
+
+.stage-deck .player-health, .stage-over .player-health{
+	display: none;
+}
+
+.player, .game-playing-controls{
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+/* Stage Deck Players */
+.stage-deck .player {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 50%;
+	-ms-flex: 0 0 50%;
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+/* Stage Playing Players */
+.stage-playing .player  {
+	-webkit-flex-basis: 0;
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-width: 100%;
+}
+.game-playing-controls{
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 100%;
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+/* Stage Game Over Players */
+.stage-over .player {
+	-webkit-flex-basis: 0;
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+
+/****************************************************/
+/* Responsive
+/****************************************************/
+
+/* Small */
+@media (min-width: 576px) {
+	.stage-deck .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 33.333333%;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	.stage-playing .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 33.333333%;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	.stage-over .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 50%;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.player-user {
+		right: 33.333333%;
+	}
+	.game-playing-controls {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 33.333333%;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+		left: 33.333333%;
+	}
+	.game-board-wins, .game-board-loses{
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 50%;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+
+/* Medium */
+@media (min-width: 768px) {
+	.stage-deck .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 25%;
+		-ms-flex: 0 0 25%;
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.stage-over .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 33.333333%;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+}
+
+/* Large */
+@media (min-width: 992px) {
+	.stage-deck .player {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 16.666667%;
+		-ms-flex: 0 0 16.666667%;
+		flex: 0 0 16.666667%;
+		max-width: 16.666667%;
+	}
+}
