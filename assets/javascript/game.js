@@ -11,9 +11,9 @@ $(document).ready(function(){
 	newGame();
 
 	// When a staged player is clicked, move them into the board for game play
-	$('.stage-deck .player').on('click', '.player-box', function(){
+	$('.stage-deck').on('click', '.player .player-box', function(){
 		var clicked = gameGrumps[ $(this).data('grump') ];
-		if( grumpPlayer === '' ){
+		if( grumpPlayer == '' ){
 			grumpPlayer = clicked; 
 			var u = $(this).parent().remove();
 			u.addClass('player-user');
@@ -187,7 +187,7 @@ var grumpies = [grump0, grump1, grump2, grump3, grump4, grump5];
 
 
 // Function to create a grumpy object
-function Grumpy(id, name, profile, power){
+function Grumpy(id, name, profile){
 	this.id = id;
 	this.name = name;
 	this.profile = profile;

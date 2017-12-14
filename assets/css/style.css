@@ -27,6 +27,7 @@ body{
 	color: #262626;
 	text-align: center;
 	line-height: 1.6em;
+	background: #EAE9E4;
 }
 
 head{ display: none }
@@ -129,6 +130,25 @@ button:active{
 	color: white;
 }
 
+.stage-playing{
+	min-height: 100%;
+	background-image: url("../images/grump.png");
+	background-position-x: 100%;
+	background-position-y: calc(100% + 600px);
+	background-size: 25%;
+	background-repeat: no-repeat;
+	-webkit-animation: peekingGrumpy 8s 6s linear 2;
+	-o-animation: peekingGrumpy 8s 6s linear 2;
+	animation: peekingGrumpy 8s 6s linear 2;
+}
+
+@keyframes peekingGrumpy{
+	0% {background-position-y: calc(100% + 600px);}
+	40% {background-position-y: calc(100%);}
+	60% {background-position-y: calc(100%);}
+	100% {background-position-y: calc(100% + 600px);}
+}
+
 .player-user .player-box{
 	background: #9f6a48 url('../images/pattern13.png') border-box;
 	background-size: 25%;
@@ -158,6 +178,7 @@ button:active{
 .roll-outcome img{
 	display: inline-block;
 	width: 40%;
+	max-width: 80px;
 	padding: 1em;
 }
 
@@ -347,6 +368,11 @@ button:active{
 		flex: 0 0 50%;
 		max-width: 50%;
 	}
+
+	.roll-buttons button{
+		width: 95%;
+		margin: 2px auto;
+	}
 }
 
 /* Medium */
@@ -364,6 +390,12 @@ button:active{
 		-ms-flex: 0 0 33.333333%;
 		flex: 0 0 33.333333%;
 		max-width: 33.333333%;
+	}
+}
+
+@media (min-width: 800px) {
+	.roll-buttons button{
+		width: auto;
 	}
 }
 
