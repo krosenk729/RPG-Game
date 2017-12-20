@@ -90,7 +90,7 @@ $(document).ready(function(){
 	// Function to change between elements on the screen based on passed selectors
 	function changeStage(showSelect, hideSelect){
 		$( showSelect + ', ' + hideSelect + ', .roll-outcome' ).hide();
-		$( showSelect ).slideDown( 8000 );
+		$( showSelect ).show();
 	}
 
 	// Function to determine if a user won given a probability of winning
